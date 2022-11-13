@@ -1,0 +1,192 @@
+@use './config' as c;
+
+@each $key,$value in c.$font-sizes{
+    .fs-#{$key}{
+        font-size: $value;
+    }
+}
+@each $key,$value in c.$values{
+    .p{
+        &x-#{$key}{
+            padding-inline:$value ;
+        }
+        &y-#{$key}{
+            padding-block:$value ;
+        }
+        &l-#{$key}{
+            padding-left:$value ;
+        }
+        &r-#{$key}{
+            padding-right:$value ;
+        }
+        &t-#{$key}{
+            padding-top:$value ;
+        }
+        &b-#{$key}{
+            padding-bottom:$value ;
+        }
+    }
+    .m{
+        &x-#{$key}{
+            margin-inline:$value ;
+        }
+        &y-#{$key}{
+            margin-block:$value ;
+        }
+        &l-#{$key}{
+            margin-left:$value ;
+        }
+        &r-#{$key}{
+            margin-right:$value ;
+        }
+        &t-#{$key}{
+            margin-top:$value ;
+        }
+        &b-#{$key}{
+            margin-bottom:$value ;
+        }
+    }
+}
+.fw-regular{
+    font-weight: map-get($map: c.$font-weights, $key: regular);
+}
+.fw-bold{
+    font-weight: map-get($map: c.$font-weights, $key: "bold");
+}
+.fs-body{
+    font-size:map-get($map: c.$font-sizes, $key: 100);
+    @include c.desktop{
+        font-size: map-get($map: c.$font-sizes, $key: 200);
+    }
+}
+.fs-nav{
+font-size: map-get($map: c.$font-sizes, $key: 300);
+    
+        @include c.desktop {
+        font-size: map-get($map: c.$font-sizes, $key: 100);
+        }
+}
+
+.fs-footer{
+        font-size: map-get($map: c.$font-sizes, $key: 200);
+        
+            @include c.desktop {
+                font-size: map-get($map: c.$font-sizes, $key: 300);
+            }
+}
+.fs-heading-primary{
+    font-size: map-get($map: c.$font-sizes, $key:600 );
+        @include c.desktop {
+                font-size: map-get($map: c.$font-sizes, $key: 800);
+            }
+}
+.fs-heading-secondary{
+    font-size: map-get($map: c.$font-sizes, $key:400 );
+        @include c.desktop {
+                font-size: map-get($map: c.$font-sizes, $key: 500);
+            }
+}
+.fs-heading-medium{
+    font-size: map-get($map: c.$font-sizes, $key:300 );
+        @include c.desktop {
+                font-size: map-get($map: c.$font-sizes, $key: 400);
+            }
+}
+.fs-heading-small{
+    font-weight: 400;
+    font-size: map-get($map: c.$font-sizes, $key:100 );
+        @include c.desktop {
+                font-size: map-get($map: c.$font-sizes, $key: 200);
+            }
+}
+
+.btnRed{
+    $color:map-get($map: c.$colors, $key: SoftRed);
+    @include c.btn(1.25rem);
+    background-color:$color ;
+    color: white;
+    &:hover{
+        color: $color;
+        border-color: $color;
+        background-color: transparent;
+    }
+}
+.btnBlue{
+    $color: map-get($map: c.$colors, $key: SoftBlue);
+    @include c.btn(1rem);
+    background-color:$color;
+    border-color: $color;
+    color: white;
+    &:hover {
+            color: $color;
+            background-color: transparent;
+        }
+}
+.btnGray{
+    $color1: map-get($map: c.$colors, $key: GrayishBlue);
+    $color2: map-get($map: c.$colors, $key: VeryDarkBlue);
+    @include c.btn(1rem);
+    background-color:lighten($color: $color1, $amount: 35%);
+    
+    &:hover {
+            color: $color2;
+            background-color: transparent;
+            border-color: $color2;
+        }
+};
+.btnMax{
+    width: max-content;
+}
+.flexCol{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    *{
+        text-align: center;
+    }
+    @include c.desktop{
+        align-items: flex-start;
+        * {
+                text-align: left;
+            }
+    }
+}
+.txtCtr{
+    text-align: center;
+}
+.txtGray{
+color: c.$GrayishBlue;
+}
+.txtWhite{
+    color: white;
+}
+.txtBlue{
+    color: c.$SoftBlue;
+}
+.txtRed{
+    color: c.$SoftRed;
+}
+.bgBlue{
+    background-color: c.$SoftBlue;
+}
+.bgRed{
+    background-color: c.$SoftRed;
+}
+.bgDark{
+    background-color: c.$VeryDarkBlue;
+}
+.redOnHover{
+ &:hover,&:focus{
+    color: c.$SoftRed;
+ }
+}
+.hide{
+    display: none;
+}
+.highlight{
+    background-color: c.$SoftRed;
+}
+.rotate{
+    transform: rotate(180deg);
+}

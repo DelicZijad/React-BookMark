@@ -1,0 +1,59 @@
+@use "sass:map";
+$SoftBlue: hsl(231, 69%, 60%);
+ $SoftRed: hsl(0, 94%, 66%);
+ $GrayishBlue: hsl(229, 8%, 60%);
+ $VeryDarkBlue: hsl(229, 31%, 21%);
+$colors :(
+    SoftBlue: $SoftBlue,
+    SoftRed: $SoftRed,
+    GrayishBlue: $GrayishBlue,
+     VeryDarkBlue: $VeryDarkBlue
+     );
+
+  $font-weights:(
+ regular:400,
+ bold:500
+  );
+
+ $font-sizes:(
+   50:0.75rem,
+    100:1rem,
+    200:1.125rem,
+    300:1.25rem,
+    400:1.5rem,
+    500:1.75rem,
+    600:2rem,
+    700:2.5rem,
+    800:3rem,
+ ); 
+ $values:(
+    50:0.5rem,
+    100:1rem,
+    150:1.5rem,
+   200:2rem,
+   250:2.5rem,
+   300:3rem,
+   350:3.5rem,
+   400:4rem,
+   500:5rem,
+   600:6rem,
+   700:7rem,
+ );
+ @mixin desktop{
+    @media  screen and (min-width:1024px) {
+        @content;
+        }
+ }
+@mixin btn($inline){
+border-radius: 5px;
+padding-inline: $inline;
+padding-block: 0.5rem;
+border: 2px solid transparent;
+outline: none;
+text-align: center!important;
+}
+@mixin gridEven($columns:auto,$rows:auto){
+display: grid;
+grid-template-columns: repeat($columns,1fr);
+grid-template-rows: repeat($rows,1fr);
+}
